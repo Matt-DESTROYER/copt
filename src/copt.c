@@ -25,8 +25,14 @@ bool option_is_none(Option option) {
 	return option.empty;
 }
 
+void* option_unwrap(Option option) {
+	if (option.empty)
+		return NULL;
+	return option.data;
+}
+
 void* option_unwrap_or(Option option, void* default_value) {
-	if (!option.empty)
-		return option.data;
-	return default_value;
+	if (option.empty)
+		return default_value;
+	return option.data;
 }

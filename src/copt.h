@@ -15,6 +15,7 @@ Option option_some(void* data);
 Option option_none(void);
 bool option_is_some(Option option);
 bool option_is_none(Option option);
+void* option_unwrap(Option option);
 void* option_unwrap_or(Option option, void* default_value);
 
 #endif
