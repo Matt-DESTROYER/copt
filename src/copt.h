@@ -11,9 +11,8 @@ struct copt {
 typedef struct copt copt;
 typedef struct copt Option;
 
-Option option_new(void);
-void option_some(Option option, void* data);
-void option_none(Option option);
+Option option_some(void* data);
+Option option_none(void);
 bool option_is_some(Option option);
 bool option_is_none(Option option);
 void* option_unwrap_or(Option option, void* default_value);

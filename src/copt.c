@@ -3,21 +3,18 @@
 #include <stdbool.h>
 #include <stddef.h>
 
-Option option_new() {
+Option option_some(void* data) {
+	return (Option){
+		.empty = false,
+		.data = data
+	};
+}
+
+Option option_none() {
 	return (Option){
 		.empty = true,
 		.data = NULL
 	};
-}
-
-void option_some(Option option, void* data) {
-	option.empty = false;
-	option.data = data;
-}
-
-void option_none(Option option) {
-	option.data = NULL;
-	option.empty = true;
 }
 
 bool option_is_some(Option option) {
